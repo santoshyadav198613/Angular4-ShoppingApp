@@ -1,0 +1,17 @@
+<h1>
+    {{title}}
+</h1>
+
+<div [innerHtml]="title"> </div>
+
+<button (click)="updateTitle()"> Update Title </button>
+
+<button (click)="reverseTitle()">Reverse Title</button>
+
+<div>
+    {{productList | json}}
+</div>
+
+<div *ngIf="isVisible">
+</div>
+<app-product-list [productList]="productList" [title]="title"></app-product-list>

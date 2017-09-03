@@ -1,0 +1,41 @@
+<h1>{{title}}</h1>
+<table class="table">
+    <thead>
+
+        <th>
+            ID
+        </th>
+
+
+        <th>
+            Name
+        </th>
+
+
+        <th>
+            Price
+        </th>
+
+
+        <th>
+            QTY
+        </th>
+
+    </thead>
+    <tbody>
+        <tr *ngFor="let prod of productList">
+            <td>
+                {{prod.id}}
+            </td>
+            <td>
+                {{prod.name}}
+            </td>
+            <td>
+                {{prod.price}}
+            </td>
+            <td>
+                {{prod.qty}}
+            </td>
+        </tr>
+    </tbody>
+</table>
