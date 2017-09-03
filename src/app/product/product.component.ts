@@ -1,6 +1,7 @@
 import { Product } from './Product';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild , ViewChildren,  QueryList } from '@angular/core';
 
+import { ProductListComponent } from './product-list/product-list.component'
 
 @Component({
   selector: 'app-product',
@@ -10,8 +11,12 @@ import { Component, OnInit } from '@angular/core';
 export class ProductComponent implements OnInit {
 
   title: string;
-  isVisible:boolean=true;
-
+  isVisible: boolean = true;
+  @ViewChild(ProductListComponent)
+  productListComponent: ProductListComponent;
+  
+  @ViewChildren(ProductListComponent)
+  productListComp : QueryList<ProductListComponent>;
   productList: Product[] = [
     { id: 1, name: "Apple", price: 100, qty: 12 },
     { id: 2, name: "Mango", price: 300, qty: 12 },
@@ -32,6 +37,10 @@ export class ProductComponent implements OnInit {
 
   reverseTitle() {
     this.title = "Angular2"
+  }
+
+  hideTable(isVisible: boolean) {
+    this.isVisible = isVisible;
   }
 
 }

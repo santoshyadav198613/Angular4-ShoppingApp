@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Product } from '../Product'
 @Component({
   selector: 'app-product-list',
@@ -6,11 +6,20 @@ import { Product } from '../Product'
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent implements OnInit {
-  @Input() productList: Product[];
+  @Input() productList: Array<Product>;
   @Input() title: string;
+  @Output() isVisible = new EventEmitter<boolean>();
+  tableVisible: boolean = false;
   constructor() { }
 
   ngOnInit() {
   }
+
+  toggleTable() {
+    this.tableVisible = !this.tableVisible;
+    this.isVisible.emit(this.tableVisible);
+  }
+
+
 
 }

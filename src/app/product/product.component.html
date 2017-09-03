@@ -2,16 +2,17 @@
     {{title}}
 </h1>
 
-<div [innerHtml]="title"> </div>
-
-<button (click)="updateTitle()"> Update Title </button>
-
-<button (click)="reverseTitle()">Reverse Title</button>
-
-<div>
-    {{productList | json}}
-</div>
 
 <div *ngIf="isVisible">
+
+    <div [innerHtml]="title"> </div>
+
+    <button (click)="updateTitle()"> Update Title </button>
+
+    <button (click)="reverseTitle()">Reverse Title</button>
+
+    <div>
+        {{productList | json}}
+    </div>
 </div>
-<app-product-list [productList]="productList" [title]="title"></app-product-list>
+<app-product-list [productList]="productList" [title]="title" (isVisible)="hideTable($event)"></app-product-list>
